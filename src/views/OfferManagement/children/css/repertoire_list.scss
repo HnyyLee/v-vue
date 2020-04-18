@@ -1,0 +1,98 @@
+.repertoire_list {
+  padding: 20px 0px;
+  .myStepDom{
+    cursor: pointer;
+  }
+  .top_print{
+    .top_h3{
+      display: inline-block;
+    }
+    .top_printer{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: -8px;
+    }
+    .comm {
+      margin: 30px auto 20px;
+      width: 100%;
+      tr {
+        th,
+        td {
+          text-align: center;
+          padding: 20px 10px;
+          width: 140px;
+        }
+        th {
+          background: #FAFAFA;
+          border: 1px solid #E8E8E8;
+        }
+        td {
+          border: 1px solid #E8E8E8;
+        }
+      }
+    }
+  }
+  
+  .contentDom{
+    margin-top: 45px;
+    .box_border {
+      border: 1px solid #e2e2e2;
+      padding: 20px 30px;
+      margin-top: 20px;
+    }
+    .holdNumDom{
+      width: 150px;
+      margin-right: 10px;
+    }
+    .addConstrDom{
+      float: right;
+    }
+    .buttonDom{
+      text-align: center;
+      .lastBtnDom{
+        margin-right: 20px;
+        width: 120px;
+        // background: #AAAAAA;
+        // border: 1px solid #AAAAAA;
+      }
+      .nextBtnDom{
+        width: 120px;
+      }
+    }
+    .orderDom{
+      background: #50ADFF;
+      margin: 55px 20px 0px 0px;
+      color: #fff;
+      padding: 20px;
+      height: 218px;
+      position: relative;
+      .amount_text{
+        text-align: center;
+        font-size: 30px;
+        margin-top: 50px;
+      }
+      .foot_text{
+        margin: 0px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+    .sendTitText{
+      text-align: center;
+      color: #BCBCBC;
+      line-height: 80px;
+      margin: 50px 0px;
+    }
+    .lastTabBtnDom{
+      padding: 20px;
+      text-align: right;
+    }
+  }
+  .bottom_button {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+  }
+}

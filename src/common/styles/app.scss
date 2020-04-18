@@ -1,0 +1,251 @@
+#app{
+  .AppContainer{
+    .left{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 101;
+      flex-shrink: 0;
+    }
+    .right{
+      .header{
+        position: relative;
+        height: 120px;
+        background: #fff;
+        // box-shadow: 5px 5px 5px #EDEDED;
+        // position: fixed;
+        top: 0;
+        // width: calc(100vw - 280px);
+        z-index: 98;
+        .tagViewDom{
+          margin-top: 8px;
+          box-shadow: 5px 5px 5px #EDEDED;
+          height: 30px;
+          padding: 0px 23px 0px 23px;
+        }
+        .logout{
+          position: absolute;
+          right: 30px;
+          top: 20px;
+          z-index: 100;
+          display: flex;
+          align-items: center;
+          .psotListBox {
+            display: flex;
+            align-items: center;
+            .list_border {
+              display: flex;
+              margin: 0 5px;
+              span {
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+        .loginTitle{
+          font-family: 'HiraginoSansGB-W6';
+          font-size: 22px;
+          font-weight: 700;
+          margin: 0px 0px 0px 0px;
+          padding: 18px 0px 14px 20px;
+          color: rgba(0,0,0,.85);
+          border-bottom: 1px solid #EEEEEE;
+        }
+        .userInformation{
+          position: absolute;
+          right: 32px;
+          top: 10px;
+          z-index: 100;
+          img{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+          }
+          img:hover{
+            cursor: pointer;
+          }
+        }
+        .topRightDom{
+          position: absolute;
+          top:25px;
+          right: 100px;
+        }
+        .btnWarp{
+          position: absolute;
+          left: 22px;
+          bottom: 18px;
+          z-index: 99;
+          transition: right .28s;
+          font-size: 20px;
+          cursor: pointer;
+        }
+        .PrimarySplice{
+          right: 110px!important;
+        }
+        .breadDom{
+          padding: 10px 30px 2px 55px;
+          line-height: 30px;
+          display: flex;
+          justify-content: space-between;
+          .aBreadcrumb{
+            // cursor: pointer;
+          }
+        }
+        .gobackBtn{
+          line-height: 28px;
+          height: 28px;
+          position: relative;
+          top: -5px;
+        }
+        .screenfullDom{
+          position: absolute;
+          right: 160px;
+          top: 22px;
+        }
+      }
+      .headerSplice{
+        // width: calc(100vw - 80px);
+      }
+      .content {
+        box-sizing: border-box;
+        .breadcrumb_box_wrap {
+          margin: 20px 0 0 20px;
+          .breadcrumb_box_wrap_abosvlute {
+            position: relative;
+          }
+        }
+      }
+      .main{
+        margin-left: 250px;
+        transition: margin-left .28s
+      }
+      .mainSplice{
+        margin-left: 80px!important;
+      }
+      .centerDom{
+        margin-top: 20px;
+        padding: 20px;
+        .setAnimation{
+          opacity: 1;
+          transition: opacity 0.3s;
+          -moz-transition: opacity 0.3s;
+          -webkit-transition: opacity 0.3s;
+          -o-transition: opacity 0.3s;
+        }
+        .spliceAnimation{
+          opacity: 0.2;
+        }
+      }
+      
+    }
+    
+  }
+  .ant-table-align-center{
+    min-width: 50px!important;
+  }
+}
+// .ant-table-body table .ant-table-thead .ant-table-align-center div{
+//   min-width: 100px;
+// }
+.ant-table-body table .ant-table-thead th{
+  padding: 20px 10px;
+}
+.ant-table-body table .ant-table-tbody tr td {
+  padding: 10px;
+}
+.ant-table-body::-webkit-scrollbar{/*滚动条整体样式*/
+  width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+  height: 8px;
+}
+.ant-table-body:hover::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(168, 168, 168, 0.2);
+  -moz-box-shadow: inset 0 0 5px rgba(168, 168, 168, 0.2);
+  background: rgba(172, 172, 172, 0.4);
+}
+.ant-table-body:hover::-webkit-scrollbar-track{/*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(196, 196, 196, 0.185);
+  -moz-box-shadow: inset 0 0 5px rgba(196, 196, 196, 0.185);
+  border-radius: 0;
+  background: rgba(201, 201, 201, 0.4);
+}
+
+
+.lastListSplice{
+  display: flex;
+  border-top: 1px solid #EBEEF5;
+  margin-top: 5px;
+  .targater{
+    padding-top: 8px;
+  }
+}
+.ant-dropdown-menu-item{
+  padding: 5px 25px !important;
+  line-height: 32px !important;
+}
+.deflueSplice{
+  padding-left: 32px !important;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield!important;
+}
+
+#components-dropdown-demo-placement .ant-btn {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.poplurDom{
+  .poplurImg{
+    text-align: center;
+    img{
+      border-radius: 50%;
+      border: 2px solid #001529;
+      width: 130px;
+    }
+  }
+  .poplur_content{
+    margin-top: 30px;
+    font-size: 16px;
+    .oneList{
+      line-height: 35px;
+      display: flex;
+      .the_left{
+        flex: 0.5;
+        text-align: right;
+        color: #B2B2B2;
+      }
+      .the_right{
+        flex: 1;
+        text-align: left;
+        margin-left: 15px;
+        color: #1F1F1F;
+      }
+    }
+    .tokenDom{
+      margin-top: 25px;
+      text-align: center;
+      .token_btn{
+        height: 40px;
+      }
+    }
+  }
+}
+
+// 调整所有的table的tr高度
+.ant-table-row.ant-table-row-level-0{
+  height: 60px!important;
+}
+
+@media print {
+  .centerDom  {
+    position: absolute!important;
+    top: 5px!important;
+    left: 5px!important;
+  }
+  .no-print{
+    display:none!important
+  }
+}

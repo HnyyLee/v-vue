@@ -1,0 +1,210 @@
+.inventoryDetails {
+  h3{
+    margin: 0px!important;
+  }
+  .comm {
+    margin: 30px auto 0px;
+    width: 100%;
+    tr {
+      th,
+      td {
+        text-align: center;
+        padding: 20px 10px;
+        width: 140px;
+      }
+      th {
+        background: #FAFAFA;
+        border: 1px solid #E8E8E8;
+      }
+      td {
+        border: 1px solid #E8E8E8;
+      }
+    }
+  }
+
+  .firstPageForm{
+    margin: 30px auto 0px;
+    width: 100%;
+    tr {
+      th, td {
+        text-align: center;
+        padding: 20px 10px;
+      }
+      th {
+        background: #FAFAFA;
+        width: 20%;
+        border: 1px solid #E8E8E8;
+      }
+      td {
+        border: 1px solid #E8E8E8;
+      }
+    }
+  }
+  
+  .contentDom{
+    .top_h3{
+      display: inline-block;
+    }
+    .top_printer{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: -8px;
+    }
+    .box_border {
+      border: 1px solid #e2e2e2;
+      padding: 20px 30px;
+      margin-top: 20px;
+    }
+    .holdNumDom{
+      width: 150px;
+      margin-right: 10px;
+    }
+    .addConstrDom{
+      float: right;
+    }
+    .buttonDom{
+      text-align: center;
+      .lastBtnDom{
+        margin-right: 20px;
+        width: 120px;
+        // background: #AAAAAA;
+        // border: 1px solid #AAAAAA;
+      }
+      .nextBtnDom{
+        width: 120px;
+      }
+    }
+    .orderDom{
+      width: 26%;
+      min-width: 350px;
+      background: #50ADFF;
+      margin: 55px auto 0px;
+      color: #fff;
+      padding: 20px;
+      height: 218px;
+      position: relative;
+      .amount_text{
+        text-align: center;
+        font-size: 30px;
+        margin-top: 50px;
+      }
+      .foot_text{
+        margin: 0px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+    .sendTitText{
+      text-align: center;
+      color: #BCBCBC;
+      line-height: 80px;
+      margin: 50px 0px;
+    }
+    .lastTabBtnDom{
+      padding: 20px;
+      text-align: right;
+    }
+  }
+  .commonOfferTable{
+    padding: 0px;
+    margin-top: 20px;
+    .btn_Dom{
+      height: 0px;
+      margin: 0px;
+    }
+  }
+  .bottom_button {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media print {
+  .inventoryDetails{
+    .top_h3{
+      text-align: center!important;
+      display: block!important;
+    }
+    table{
+      font-size: 8px!important;
+    }
+    .contentDom{
+      .commonOfferTable{
+        padding: 0px;
+        margin-top: 20px;
+      }
+      .box_border{
+        padding: 0px!important;
+        border: none!important;
+      }
+      // .orderDom{
+      //   background: #50ADFF;
+      //   margin: 20px 0px 0px 0px;
+      //   color: #fff;
+      //   padding: 10px;
+      //   height: 120px;
+      //   position: relative;
+      //   .amount_text{
+      //     text-align: center;
+      //     font-size: 18px;
+      //     margin-top: 20px;
+      //     color: #322F2E;
+      //   }
+      //   .foot_text{
+      //     margin: 0px;
+      //     position: absolute;
+      //     right: 5px;
+      //     bottom: 5px;
+      //     font-size: 8px!important;
+      //     transform: scale(0.8);
+      //     color: #322F2E;
+      //   }
+      // }
+    }
+    .printBtnDom{
+      display: none!important;
+    }
+
+    .ant-input-disabled{
+      background: #FAFAFA;
+      color: #272727;
+      font-size: 8px;
+    }
+    .ant-input{
+      border: 1px solid #3E3E3E;
+    }
+    .ant-table-bordered .ant-table-body>table{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-thead>tr>th{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-bordered.ant-table-empty .ant-table-placeholder{
+      // border-top: 1px solid #3E3E3E;
+      border-left: 1px solid #3E3E3E;
+      border-right: 1px solid #3E3E3E;
+      border-bottom: 1px solid #3E3E3E;
+    }
+    .ant-table-bordered .ant-table-thead>tr>th{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-tbody>tr>td{
+      border: 1px solid #3E3E3E
+    }
+    .comm tr th {
+      border: 1px solid #3E3E3E!important;
+    }
+    .comm tr td {
+      border: 1px solid #3E3E3E!important;
+    }
+  }
+  .firstPageForm tr th {
+    border: 1px solid #3E3E3E!important;
+  }
+  .firstPageForm tr td {
+    border: 1px solid #3E3E3E!important;
+  }
+}

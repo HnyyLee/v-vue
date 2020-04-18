@@ -1,0 +1,97 @@
+
+.mainMaterials {
+  p{
+    margin: 0px;
+  }
+  .mainMater_stepDom{
+    margin: 40px 0px 40px 0px;
+  }
+  .mainMater_center{
+    .comm {
+      width: 100%;
+      tr {
+        height: 50px;
+        .table_th,.table_td {
+          text-align: center;
+          padding: 12px 10px;
+          width: 140px;
+        }
+        .table_th {
+          width: 8%;
+          background: #FAFAFA;
+          border: 1px solid #E8E8E8;
+        }
+        .table_td {
+          border: 1px solid #E8E8E8;
+        }
+      }
+
+      .tit_text{
+        position: relative;
+        text-align: left;
+        .infoText{
+          display: inline-block;
+        }
+        .info_icon{
+          position: absolute;
+          right: 10px;
+          .targater{
+            color: #1990FF;
+            cursor: pointer;
+            font-size: 20px;
+          }
+        }
+      }
+      .tit_concent{
+        text-align: left;
+        position: relative;
+        .aFormItem{
+          margin-bottom: 0; 
+          width: 70%; 
+          display: inline-block;
+        }
+        .lastSplice{
+          margin-bottom: 0;
+          display: inline-block;
+        }
+        .small_center{
+          position: relative;
+          top: 10px;
+        }
+        .btn_dom{
+          position: absolute;
+          right: 0px;
+          top: 8px;
+          .checkDom{
+            cursor: pointer;
+            font-size: 16px;
+          }
+          .checkDom:hover{ 
+            color: #FF7C2C;
+          }
+        }
+      }
+    }
+
+  }
+  .mainMater_maix{
+    margin-top: 30px;
+  }
+  .footer{
+    text-align: center;
+  }
+  .gobackDom{
+    margin-right: 10px;
+  }
+  .nonePage{
+    text-align: center;
+    padding: 120px 0px 120px 0px;
+    margin-top: 15px;
+    border: 1px solid #D3D3D3;
+    .none_text{
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 23px;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+
+.productAddEditPage {
+  .Pro_title{
+    font-size: 18px;
+    margin: 0px;
+    text-align: center;
+  }
+  h3{
+    margin: 0px;
+  }
+  .prod_Dom{
+    margin-top: 20px;
+    position: relative;
+    .prod_tit{
+      display: inline-block;
+      margin: 15px 0px 15px 0px;
+    }
+    .prod_right{
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 15px;
+      .add_btn{
+        margin-left: 20px;
+      }
+    }
+  }
+  .comm {
+    margin: 20px auto 0px;
+    width: 100%;
+    tr {
+      th,td {
+        text-align: center;
+        padding: 12px 10px;
+        width: 140px;
+      }
+      th {
+        width: 25%;
+        background: #FAFAFA;
+        border: 1px solid #E8E8E8;
+      }
+      td {
+        border: 1px solid #E8E8E8;
+      }
+    }
+    .commLeft{
+      text-align: left;
+    }
+  }
+  .bottom_Btn{
+    text-align: center;
+    margin-top: 30px;
+    .submit_btn{
+      margin-left: 20px;
+      height: 38px;
+      width: 110px;
+    }
+    .cannal_btn{
+      height: 38px;
+      width: 110px;
+    }
+  }
+}

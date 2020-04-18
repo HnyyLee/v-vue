@@ -1,0 +1,181 @@
+.contract {
+  .topTabDom{
+    text-align: center;
+    margin-top: 30px;
+    span{
+      display: inline-block;
+      width: 115px;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid #767676;
+      margin-right: 30px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .topTabSplice{
+      background: #1590FF;
+      color: #fff;
+      border: 1px solid #1590FF;
+    }
+  }
+  .leftDom{
+    .tit_status{
+      text-align: right;
+      font-size: 15px;
+    }
+    .comm {
+      margin: 20px auto 0px;
+      width: 100%;
+      tr {
+        height: 50px;
+        .table_th,.table_td {
+          text-align: center;
+          padding: 12px 10px;
+          width: 140px;
+        }
+        .table_th {
+          width: 15%;
+          background: #FAFAFA;
+          border: 1px solid #E8E8E8;
+        }
+        .table_td {
+          border: 1px solid #E8E8E8;
+        }
+      }
+      .commLeft{
+        text-align: left!important;
+        padding: 12px 20px 12px 20px!important;
+      }
+      .informationDom{
+        h3{
+          margin: 0px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .smallcomm {
+          margin: 10px auto 0px;
+          width: 100%;
+          tr {
+            height: 55px;
+            th,td {
+              text-align: center;
+              padding: 2px 10px;
+              width: 140px;
+            }
+            th {
+              width: 11%;
+              background: #FAFAFA;
+              border: 1px solid #E8E8E8;
+            }
+            td {
+              text-align: left;
+              border: 1px solid #E8E8E8;
+              width: 40%;
+            }
+          }
+          .content{
+            text-align: center;
+            background: #FAFAFA;
+          }
+          .tit_text{
+            position: relative;
+            .infoText{
+              display: inline-block;
+              margin: 0px;
+              width: 86%;
+            }
+            .info_icon{
+              position: absolute;
+              right: 10px;
+              .targater{
+                color: #1990FF;
+                cursor: pointer;
+                font-size: 20px;
+              }
+            }
+          }
+          .btn_dom{
+            display: inline-block;
+            margin: 8px 0px 0px 10px;
+          }
+          .spanText{
+            display: inline-block;
+            width: 20px;
+            margin: 0px 10px 0px 5px;
+            line-height: 38px;
+          }
+          .spanTextsp{
+            width: 30px!important;
+          }
+          .patternDom{
+            margin-bottom: 0; 
+            width: 12%; 
+            display: inline-block;
+            min-width: 60px!important;
+          }
+          
+          .type_text{
+            display: inline-block;
+            position: absolute;
+          }
+          .alineOne{
+            display: inline-block;
+            width: 90%;
+            margin: 0px 0px 0px 30px;
+          }
+        }
+      }
+    }
+  }
+  .showNoneDom{
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+    .none_img{
+      width: 100px;
+      height: 100px;
+    }
+    .right{
+      display: inline-block;
+      margin-left: 20px;
+      position: relative;
+      top: 20px;
+      p{
+        margin: 0px;
+        text-align: left;
+      }
+      .text_tit{
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .small_tit{
+        font-size: 13px;
+        color: #9D9D9D;
+        margin-top: 5px;
+      }
+    }
+    .gobackDom{
+      margin-top: 60px;
+    }
+  }
+  .submitDom{
+    text-align: center;
+    margin-top: 50px;
+  }
+  .text_Dom{
+    color: #1890ff; 
+    cursor: pointer;
+  }
+
+
+  @media screen and (max-width: 1620px) {
+    .smallcomm .patternDom{
+      min-width: 70px!important;
+    }
+  }
+  @media screen and (max-width: 1290px) {
+    .smallcomm .patternDom{
+      min-width: 70px!important;
+    }
+  }
+}

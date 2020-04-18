@@ -1,0 +1,220 @@
+# 定义ci的stage, 按照stage定义顺序执行, 每个stage可以有多个job, job是并行运行
+stages:
+  - prepare
+  - build
+  - test
+  - deploy
+  - integration
+  - cleanup
+
+# 定义变量, 供后面的任务使用, 请仔细核对
+variables:
+  # 如果用submodule, git策略使用fetch, 并确认job里用的是fetch不是clone
+  GIT_STRATEGY: fetch
+  # git upstream repo
+  UPSTREAM_NAMESPACE: CS/front/renovation
+  # docker register [docker]
+  REGISTER: bu6.io
+  # image variables [docker]
+  IMAGE_NAME: rbs-admin-vue
+  IMAGE_TAG: ${GITLAB_USER_LOGIN}-${CI_COMMIT_REF_SLUG}-${CI_PIPELINE_ID}
+  # sonar variable [sonar, sast]
+  # 静态检测, sonar_login和proj需要自行登录sonar创建
+  SONAR_HOST: "https://sonar.bu6.io"
+  SONAR_PROJ: "rbs-admin-vue"
+  SONAR_LOGIN: "fe0f349c9ecd2f3b43c99d0d49421594dd96f58a"
+  # 容器扫描服务 [docker, sast]
+  CLAIR_URL: "http://clair.bu6.io"
+
+  # helm chart path [k8s]
+  # 没有迁移到k8s可以不用
+  # CHART_PATH: chart/
+  COMMIT_ID: HEAD
+
+# 下面三个模板是用来确定job在何时工作, 请确认UPSTREAM_NAMESPACE设置正确
+# 1. 不在upstream repo中执行, 即每个人fork的仓库执行
+.origin: &only_origin
+  except:
+    variables:
+      - $CI_PROJECT_NAMESPACE == $UPSTREAM_NAMESPACE
+
+# 2. 只在upstream repo运行
+.upstream: &only_upstream
+  only:
+    variables:
+      - $CI_PROJECT_NAMESPACE == $UPSTREAM_NAMESPACE
+
+# 3. 只在upstream repo的test分支运行, 例如发布到测试环境
+.upstream_test: &only_upstream_test
+  only:
+    refs:
+      - test
+      - web
+    variables:
+      - $CI_PROJECT_NAMESPACE == $UPSTREAM_NAMESPACE
+  except:
+    - master
+
+# 4. 只在upstream repo的release分支运行, 例如发布到生产环境
+.upstream_release: &only_upstream_release
+  only:
+    refs:
+      - web@CS/front/renovation/rbs-admin-vue
+    variables:
+      - $CI_COMMIT_REF_NAME == "master"
+
+before_script:
+  - set -ex
+  - git checkout ${COMMIT_ID}
+
+# 构建并推送镜像, 命令行参数--dockerfile需要指定文件路径
+.build: &build
+  stage: build
+  tags:
+    - docker
+  image:
+    name: docker:stable-git
+  retry: 2
+  script:
+    - echo ${ENV} image
+    - docker build --build-arg ENV=$ENV -t ${REGISTER}/${IMAGE_NAME}:${IMAGE_TAG} -f ${CI_PROJECT_DIR}/Dockerfile ${CI_PROJECT_DIR}
+    - docker push ${REGISTER}/${IMAGE_NAME}:${IMAGE_TAG}
+
+build_test: 
+  variables:
+    ENV: test
+  <<: *build
+  <<: *only_upstream_test
+
+build_prod:
+  variables:
+    ENV: prod
+  <<: *build
+  <<: *only_upstream_release
+
+# Dockerfile Lint, 需要指定Dockerfile路径
+container-test-space 1/2:
+  <<: *only_upstream_test
+  stage: test
+  tags:
+    - docker
+  image: hadolint/hadolint:latest-debian
+  when: manual
+  allow_failure: true
+  script:
+    - /bin/hadolint ${CI_PROJECT_DIR}/Dockerfile
+
+# 容器扫描, 照抄即可
+container-test-space 2/2:
+  <<: *only_upstream_test
+  stage: test
+  image: bu6.io/clair-scanner:v8
+  when: manual
+  tags:
+    - docker
+  services:
+    - docker:stable-dind
+  variables:
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  script:
+    - docker pull ${REGISTER}/${IMAGE_NAME}:${IMAGE_TAG}
+    - clair-scanner -c ${CLAIR_URL} --ip $(hostname -i) ${REGISTER}/${IMAGE_NAME}:${IMAGE_TAG}
+
+# 单元测试, 需订制
+# unittest:
+#   stage: test
+#   image: ${REGISTER}/${IMAGE_NAME}:${IMAGE_TAG}
+#   services:
+#     - name: bu6.io/library/mysql:5.6
+#       alias: mysql_bomber
+#       command:
+#         ["--character-set-server=utf8", "--collation-server=utf8_general_ci"]
+#     - name: bu6.io/library/redis:4.0
+#       alias: redis
+#   variables:
+#     DEBUG: "true"
+#     TESTING: "true"
+#     HOST: "http://0.0.0.0:6064"
+#     SQLALCHEMY_DATABASE_URI: mysql://root:${MYSQL_ROOT_PASSWORD}@mysql_bomber/${MYSQL_DATABASE}?charset=utf8
+#     REDIS_URI: redis://redis:6379/1
+#     REDIS_MAX_CONNECTIONS: 20
+#     CELERY_BROKER_URL: redis://redis:6379/1
+#     CELERY_RESULT_BACKEND: redis://redis:6379/1
+#     CELERY_ENABLE_UTC: "true"
+#     prometheus_multiproc_dir: /tmp/prometheus-metrics
+#   tags:
+#     - docker
+#   script:
+#     - pip install -r /usr/src/app/requirements-test.txt -i https://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+#     - honcho -e /usr/src/app/config/test_pr run python manage.py dropdb
+#     - honcho -e /usr/src/app/config/test_pr run python manage.py syncdb
+#     - honcho -e /usr/src/app//config/test_pr run pytest tests
+
+# 模板
+.sast-common: &sast-common
+  image: bu6.io/sonar-scanner:test
+  stage: test
+  tags:
+    - docker
+
+# sonar测试, 会在服务端生成报告, 只在mater/upstream运行
+sast:
+  <<: *sast-common
+  <<: *only_upstream_test
+  when: manual
+  script:
+    - sonar-scanner
+      -Dsonar.host.url=$SONAR_HOST
+      -Dsonar.login=$SONAR_LOGIN
+      -Dsonar.projectKey=$SONAR_PROJ
+      -Dsonar.sources=.
+
+# 下面几个job是cd相关, cd暂时使用jenkins
+.deploy: &deploy_definition
+  stage: deploy
+  image: bu6.io/helm-deploy:test
+  tags:
+    - docker
+  script:
+    - echo deploying app to ${NAMESPACE}
+    - helm diff upgrade --allow-unreleased
+      --namespace=${NAMESPACE}
+      --set imageTag=${IMAGE_TAG}
+      --set imageName=${IMAGE_NAME}
+      --set register=${REGISTER}
+      -f ${CHART_PATH}/${VALUES_FILE} 
+      ${RELEASE_NAME} ${CHART_PATH}
+    - helm upgrade --install 
+      --namespace=${NAMESPACE}
+      --set imageTag=${IMAGE_TAG}
+      --set imageName=${IMAGE_NAME}
+      --set register=${REGISTER}
+      -f ${CHART_PATH}/${VALUES_FILE}
+      --wait --atomic --recreate-pods
+      ${RELEASE_NAME} ${CHART_PATH}
+
+deploy->test:
+  <<: *only_upstream_test
+  stage: deploy
+  image: bu6.io/ansible-deploy:test
+  tags:
+    - docker
+  variables:
+    NAMESPACE: test
+  script:
+    - echo deploying app to ${NAMESPACE}
+    - cd ${CI_PROJECT_DIR}/playbook/ && ansible-playbook -i hosts deploy-test.yml --extra-vars="image_name=${IMAGE_NAME} image_version=${IMAGE_TAG}" -u deploy
+
+deploy->prod:
+  <<: *only_upstream_release
+  stage: deploy
+  image: bu6.io/ansible-deploy:test
+  tags:
+    - docker
+  when: manual
+  variables:
+    NAMESPACE: prod
+  script:
+    - echo deploying app to ${NAMESPACE}
+    - cd ${CI_PROJECT_DIR}/playbook/ && ansible-playbook -i hosts deploy-prod.yml --extra-vars="image_name=${IMAGE_NAME} image_version=${IMAGE_TAG}" -u deploy

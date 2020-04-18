@@ -1,0 +1,80 @@
+.DispatchOperation {
+  padding: 0px 0px;
+  .btn_box {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0;
+  }
+  .top{
+    height: 50px;
+  }
+  .title{
+    margin-top: 20px;
+  }
+  .editBtnDom{
+    float: right;
+  }
+  .editable-row-operations a {
+    margin-right: 8px;
+  }
+  .TabDom{
+    padding: 20px;
+  }
+  .leftLabelDom{
+    .ant-form-item-label{
+      width: 80px;
+    }
+  }
+  .centerLabelDom{
+    .ant-form-item-label{
+      width: 120px;
+    }
+  }
+  .margin-top {
+    margin-top: 20px;
+  }
+  .dispat_box_tabble {
+    &_remke {
+      border: 1px solid #e6e6e6;
+      padding: 10px;
+      margin: 10px 0px;
+    }
+    &_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dispat_table_box {
+      border: 1px solid #e6e6e6;
+      margin-top: 10px;
+      .dispat_table_content {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #e6e6e6;
+        &_left {
+          width: 20%;
+          min-height: 43px;
+          line-height: 43px;
+          box-sizing: border-box;
+          padding-right: 10px;
+          text-align: right;
+          background: #F7F7F7;
+        }
+        &_right{
+          min-height: 43px;
+          width: 80%;
+          padding: 10px;
+          align-items: center;
+          border-left: 1px solid #e6e6e6;
+          .showSpan {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+  .noneRemark{
+    color: #CBCBCB;
+    margin: 0px;
+  }
+}

@@ -1,0 +1,75 @@
+.packageDetailsPage {
+  padding: 20px 0px;
+  .contentDom{
+    margin-top: 20px;
+    .box_border {
+      border: 1px solid #e2e2e2;
+      padding: 20px 30px;
+      margin-top: 20px;
+    }
+    .holdNumDom{
+      width: 150px;
+      margin-right: 10px;
+    }
+    .addConstrDom{
+      float: right;
+    }
+    .buttonDom{
+      text-align: center;
+      .lastBtnDom{
+        margin-right: 20px;
+        width: 120px;
+        // background: #AAAAAA;
+        // border: 1px solid #AAAAAA;
+      }
+      .nextBtnDom{
+        width: 120px;
+      }
+    }
+    .orderDom{
+      background: #50ADFF;
+      margin: 60px 20px 0px 0px;
+      color: #fff;
+      padding: 20px;
+      height: 218px;
+      position: relative;
+      .amount_text{
+        text-align: center;
+        font-size: 30px;
+        margin-top: 50px;
+      }
+      .foot_text{
+        margin: 0px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+    .lastTabBtnDom{
+      padding: 20px;
+      text-align: right;
+    }
+  }
+  .rangSpliceDom{
+    .ant-form-item-label label:before {
+      display: inline-block;
+      margin-right: 4px;
+      content: "*";
+      font-family: SimSun;
+      line-height: 1;
+      font-size: 14px;
+      color: #f5222d
+    }
+  }
+  .myStepDom{
+    cursor: pointer;
+  }
+  .bottom_button {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+  }
+  .printBtnDom{
+    width: 200px;
+  }
+}

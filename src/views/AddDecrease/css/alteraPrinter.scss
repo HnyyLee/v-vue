@@ -1,0 +1,186 @@
+.quotedetails {
+  .comm {
+    margin: 30px auto 0px;
+    width: 100%;
+    tr {
+      th,
+      td {
+        text-align: center;
+        padding: 12px 10px;
+        width: 140px;
+      }
+      th {
+        background: #FAFAFA;
+        border: 1px solid #E8E8E8;
+      }
+      td {
+        border: 1px solid #E8E8E8;
+      }
+    }
+  }
+
+  .firstPageForm{
+    margin: 30px auto 0px;
+    width: 100%;
+    tr {
+      th, td {
+        text-align: center;
+        padding: 12px 10px;
+      }
+      th {
+        background: #FAFAFA;
+        width: 20%;
+        border: 1px solid #E8E8E8;
+      }
+      td {
+        border: 1px solid #E8E8E8;
+      }
+    }
+  }
+
+  .contentDom{
+    .top_h3{
+      text-align: center;
+      display: block;
+      font-size: 22px;
+    }
+    .top_printer{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: -8px;
+    }
+    .center_Title{
+      margin: 20px 0px;
+      text-align: center;
+    }
+    .footer{
+      margin: 60px 0px 20px 0px;
+      .top{
+        display: flex;
+        p{
+          flex: 1;
+          line-height: 35px;
+        }
+      }
+      .bottom{
+        display: flex;
+        p{
+          flex: 1;
+          line-height: 35px;
+        }
+      }
+    }
+  }
+  .rangSpliceDom{
+    .ant-form-item-label label:before {
+      display: inline-block;
+      margin-right: 4px;
+      content: "*";
+      font-family: SimSun;
+      line-height: 1;
+      font-size: 14px;
+      color: #f5222d
+    }
+  }
+  .myStepDom{
+    cursor: pointer;
+  }
+  .bottom_button {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+  }
+  .printBtnDom{
+    width: 160px;
+  }
+  .commonOfferTable{
+    padding: 0px;
+    .btn_Dom{
+      height: 0px;
+      margin: 0px;
+    }
+  }
+  // 调整当前页面的table的tr高度
+  thead tr{
+    height: 50px!important;
+  }
+  thead tr th.ant-table-align-center{
+    padding: 0px!important;
+  }
+  .ant-table-row.ant-table-row-level-0{
+    height: auto!important;
+  }
+}
+
+@media print {
+  .quotedetails{
+    .top_h3{
+      text-align: center!important;
+      display: block!important;
+    }
+    table{
+      font-size: 8px!important;
+    }
+    .contentDom{
+      .box_border{
+        padding: 0px!important;
+        border: none!important;
+      }
+    }
+    .printBtnDom{
+      display: none!important;
+    }
+    .commonOfferTable{
+      padding: 0px;
+    }
+    .ant-input-disabled{
+      background: #FAFAFA;
+      color: #272727;
+      font-size: 8px;
+    }
+    .ant-input{
+      border: 1px solid #3E3E3E;
+    }
+    .ant-table-bordered .ant-table-body>table{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-thead>tr>th{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-bordered.ant-table-empty .ant-table-placeholder{
+      // border-top: 1px solid #3E3E3E;
+      border-left: 1px solid #3E3E3E;
+      border-right: 1px solid #3E3E3E;
+      border-bottom: 1px solid #3E3E3E;
+    }
+    .ant-table-bordered .ant-table-thead>tr>th{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-tbody>tr>td{
+      border: 1px solid #3E3E3E
+    }
+    .comm tr th {
+      border: 1px solid #3E3E3E!important;
+    }
+    .comm tr td {
+      border: 1px solid #3E3E3E!important;
+    }
+    .firstPageForm tr th {
+      border: 1px solid #3E3E3E!important;
+    }
+    .firstPageForm tr td {
+      border: 1px solid #3E3E3E!important;
+    }
+    // 调整当前页面的table的tr高度
+    thead tr{
+      height: 35px!important;
+    }
+    thead tr th.ant-table-align-center{
+      padding: 0px!important;
+    }
+    .ant-table-row.ant-table-row-level-0{
+      height: auto!important;
+    }
+  }
+}

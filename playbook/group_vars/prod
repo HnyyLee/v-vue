@@ -1,0 +1,4 @@
+---
+container_name: rbs-admin-vue
+container_port: 8011
+fluentd_tag: cs-front.rbs-admin.prod

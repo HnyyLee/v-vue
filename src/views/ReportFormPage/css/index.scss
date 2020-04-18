@@ -1,0 +1,166 @@
+.ReportFormPage{
+  .topDom{
+    margin-top: 20px;
+    .top_left{
+      margin: 0px 10px 0px 0px;
+    }
+    .top_right{
+      margin: 0px 10px 0px 20px;
+    }
+    .asubmit{
+      margin-left: 20px;
+    }
+  }
+  .oneForm{
+    margin-top: 40px;
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .my_border{
+      border: 1px solid #E5E5E5;
+    }
+  }
+  .twoForm{
+    display: flex;
+    margin-top: 35px;
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .aleft{
+      // flex: 1;
+      width: 100%;
+      .my_border{
+        border: 1px solid #E5E5E5;
+        margin-right: 20px;
+      }
+    }
+    .aright{
+      flex: 1;
+      position: relative;
+      .showNoneDom{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999;
+        background: rgba(0, 0, 0, 0.7);
+        p{
+          color: #fff;
+          font-size: 25px;
+          text-align: center;
+          position: absolute;
+          margin: auto;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 40px;
+        }
+      }
+      .my_border{
+        border: 1px solid #E5E5E5;
+      }
+    }
+  }
+  .threeForm{
+    margin-top: 40px;
+    position: relative;
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .threeSelectDom{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+    }
+    .my_border{
+      border: 1px solid #E5E5E5;
+    }
+  }
+  .fourForm{
+    margin-top: 40px;
+    position: relative;
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .fourPaginationDom{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+    }
+    .my_border{
+      border: 1px solid #E5E5E5;
+    }
+  }
+  .fiveForm{
+    margin-top: 40px;
+    position: relative;
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .fiveSelectDom{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+    }
+    .my_border{
+      border: 1px solid #E5E5E5;
+    }
+  }
+  .sixForm{
+    margin-top: 40px;
+    position: relative;
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .sixSelectDom{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+    }
+    .my_border{
+      border: 1px solid #E5E5E5;
+    }
+  }
+  .sevenForm{
+    margin-top: 40px;
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .my_border{
+      padding-top: 20px;
+      border: 1px solid #E5E5E5;
+    }
+  }
+  .my_border{
+    min-height: 250px!important;
+    position: relative;
+  }
+  .noneImg{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .none_text{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    color: #A5A5A5;
+  }
+
+}

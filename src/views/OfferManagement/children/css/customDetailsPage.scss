@@ -1,0 +1,158 @@
+.customDetailsPage {
+  padding: 20px 0px;
+  .top_print{
+    .top_h3{
+      display: inline-block;
+    }
+    .top_printer{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: -8px;
+    }
+    .comm {
+      margin: 30px auto 20px;
+      width: 100%;
+      tr {
+        th,
+        td {
+          text-align: center;
+          padding: 20px 10px;
+          width: 140px;
+        }
+        th {
+          background: #FAFAFA;
+          border: 1px solid #E8E8E8;
+        }
+        td {
+          border: 1px solid #E8E8E8;
+        }
+      }
+    }
+  }
+  
+  .orderDom{
+    width: 35%;
+    background: #50ADFF;
+    margin: 20px auto;
+    color: #fff;
+    padding: 20px;
+    height: 188px;
+    position: relative;
+    .amount_text{
+      text-align: center;
+      font-size: 30px;
+      margin-top: 50px;
+    }
+    .foot_text{
+      font-size: 8px;
+      text-align: right;
+    }
+  }
+  .buttonDom{
+    text-align: center;
+    margin-top: 80px;
+    .lastBtnDom{
+      width: 120px;
+      margin-left: 20px;
+    }
+  }
+  .lineDom{
+    .oneOnly{
+      width: 50%;
+      margin: auto;
+      display: flex;
+      .ant-form-item-label{
+        flex: 0.3;
+        // display: inline-block;
+      }
+      .ant-form-item-control-wrapper{
+        flex: 1;
+        // display: inline-block;
+        // margin-left: 70px;
+      }
+      .ant-form-item-required{
+        // position: absolute;
+        // top: 0px;
+      }
+    }
+  }
+  .aTextDom{
+    position: absolute;
+    margin-left: 10px;
+  }
+}
+
+
+@media print {
+  .customDetailsPage{
+    .top_h3{
+      text-align: center!important;
+      display: block!important;
+    }
+    table{
+      font-size: 8px!important;
+    }
+    .printBtnDom{
+      display: none!important;
+    }
+
+    .orderDom{
+      background: #CBCBCB;
+      width: 400px;
+      margin: auto;
+      color: #fff;
+      height: 90px;
+      text-align: center;
+      .amount_text{
+        font-size: 18px;
+        text-align: center;
+        width: 100%;
+        color: #322F2E;
+        margin: 0px;
+      }
+      .foot_text{
+        color: #322F2E;
+        text-align: center;
+        font-size: 8px;
+        transform: scale(0.8);
+      }
+    }
+
+    .ant-input-disabled{
+      background: #FAFAFA;
+      color: #272727;
+      font-size: 8px;
+    }
+    .ant-input{
+      border: 1px solid #3E3E3E;
+    }
+    .ant-table-bordered .ant-table-body>table{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-thead>tr>th{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-bordered.ant-table-empty .ant-table-placeholder{
+      // border-top: 1px solid #3E3E3E;
+      border-left: 1px solid #3E3E3E;
+      border-right: 1px solid #3E3E3E;
+      border-bottom: 1px solid #3E3E3E;
+    }
+    .ant-table-bordered .ant-table-thead>tr>th{
+      border: 1px solid #3E3E3E
+    }
+    .ant-table-tbody>tr>td{
+      border: 1px solid #3E3E3E
+    }
+    .comm tr th {
+      border: 1px solid #3E3E3E!important;
+    }
+    .comm tr td {
+      border: 1px solid #3E3E3E!important;
+    }
+    .ant-row.ant-form-item{
+      width: 95%;
+    }
+  }
+}
